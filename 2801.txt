@@ -1,0 +1,28 @@
+#include <iostream>
+
+// 计算奇数和的函数
+int calculateOddSum(int m, int n) {
+    int sum = 0;
+
+    // 遍历[m, n]范围内的每个整数
+    for (int i = m; i <= n; ++i) {
+        // 判断当前整数是否为奇数
+        if (i % 2 != 0) {
+            sum += i;  // 将奇数累加到和中
+        }
+    }
+
+    return sum;
+}
+
+int main() {
+    // 输入范围[m, n]
+    int m, n;
+    std::cin >> m >> n;
+
+    // 调用函数计算奇数和并输出结果
+    int result = calculateOddSum(m, n);
+    std::cout << result << std::endl;
+
+    return 0;
+}

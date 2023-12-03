@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int coefficients[n + 1];
+
+    // 读取多项式系数
+    for (int i = 0; i <= n; ++i) {
+        cin >> coefficients[i];
+    }
+    int t = n;
+    // 计算导函数的系数
+    for (int i = 0; i <=n; i++) {
+        coefficients[i] *= t;
+        t--;
+    }
+
+    // 输出导函数
+    if (n == 0) {
+        cout << "0" << endl;
+    } else {
+        for (int i = 0; i <n; i++) {
+            cout << coefficients[i];
+            if (i <n-1) {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string input;
+    cin >> input;
+
+    // 使用数组记录每个字符出现的次数
+    int charCount[26] = {0};  // 假设只包含小写字母，所以使用长度为26的数组
+// 遍历字符串，统计每个字符出现的次数
+for (int i = 0; i < input.length(); ++i) {
+    char ch = input[i];
+    charCount[ch - 'a']++;
+}
+
+// 遍历字符串，找到第一个仅出现一次的字符
+for (int i = 0; i < input.length(); ++i) {
+    char ch = input[i];
+    if (charCount[ch - 'a'] == 1) {
+        cout << ch << endl;
+        return 0;
+    }
+}
+    // 没有找到仅出现一次的字符
+    cout << "no" << endl;
+
+    return 0;
+}

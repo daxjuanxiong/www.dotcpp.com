@@ -1,0 +1,26 @@
+#include <iostream>
+
+int reverseInteger(int num) {
+    int reversed = 0;
+
+    while (num != 0) {
+        int digit = num % 10;
+        reversed = reversed * 10 + digit;
+        num /= 10;
+    }
+
+    return reversed;
+}
+
+int main() {
+    // 示例用法
+    int num;
+    std::cout << "输入一个整数: ";
+    std::cin >> num;
+
+    int reversedNum = reverseInteger(num);
+
+    std::cout << reversedNum << std::endl;
+
+    return 0;
+}

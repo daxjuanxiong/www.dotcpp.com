@@ -1,0 +1,28 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    // 定义每本书的单价
+    double prices[] = {28.9, 32.7, 45.6, 78, 35, 86.2, 27.8, 43, 56, 65};
+
+    // 定义每种书的购买数量
+    int quantities[10];
+
+    // 读取每种书的购买数量
+    for (int i = 0; i < 10; ++i) {
+        cin >> quantities[i];
+    }
+
+    // 计算总费用
+    double totalCost = 0;
+    for (int i = 0; i < 10; ++i) {
+        totalCost += prices[i] * quantities[i];
+    }
+
+    // 输出总费用，保留一位小数
+    cout << fixed << setprecision(1) << totalCost << endl;
+
+    return 0;
+}

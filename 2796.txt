@@ -1,0 +1,24 @@
+#include <iostream>
+#include <iomanip> // 用于设置输出精度
+
+int main() {
+    // 输入整数个数
+    int n;
+    std::cin >> n;
+
+    // 初始化变量
+    int sum = 0;
+    int num;
+
+    // 输入n个整数并累加和
+    for (int i = 0; i < n; ++i) {
+        std::cin >> num;
+        sum += num;
+    }
+
+    // 计算平均值并输出结果，保留到小数点后5位
+    double average = static_cast<double>(sum) / n;
+    std::cout << sum << ' ' << std::fixed << std::setprecision(5) << average << std::endl;
+
+    return 0;
+}

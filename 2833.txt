@@ -1,0 +1,28 @@
+#include <iostream>
+
+int main() {
+    int days;
+    std::cin >> days;
+
+    int coins = 0;
+    int currentCoins = 1;  // 当前天数应获得的金币数
+    int consecutiveDays  = 1;
+    int nextConsecutiveDays = 1;
+    for (int day = 1; day <= days; ++day) {
+	  coins += currentCoins;  // 累加金币数
+	if( consecutiveDays==1)
+	{
+                  nextConsecutiveDays++;
+	    consecutiveDays  = nextConsecutiveDays;
+	    currentCoins++;  // 更新当前天数应获得的金币数
+	}
+	else
+	{
+	    consecutiveDays--;
+	}
+    }
+
+    std::cout << coins << std::endl;
+
+    return 0;
+}

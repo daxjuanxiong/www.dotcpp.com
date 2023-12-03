@@ -1,0 +1,43 @@
+#include <iostream>
+#include <iomanip>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    // 读取病人数目
+    int n;
+    cin >> n;
+
+    // 用于统计各年龄段的患病人数，初始化为0
+    vector<int> ageCount(4, 0);
+
+    // 读取每个病人患病时的年龄并统计
+    for (int i = 0; i < n; ++i) {
+        int age;
+        cin >> age;
+
+        // 根据年龄判断属于哪个年龄段，并对相应的计数器加一
+        if (age <= 18) {
+            ageCount[0]++;
+        } else if (age <= 35) {
+            ageCount[1]++;
+        } else if (age <= 60) {
+            ageCount[2]++;
+        } else {
+            ageCount[3]++;
+        }
+    }
+
+    // 计算每个年龄段患病人数占总患病人数的比例，并输出
+    for (int i = 0; i < 4; ++i) {
+        // 计算百分比，使用 static_cast 转换为 double 类型，以避免整数除法的问题
+        double percentage = static_cast<double>(ageCount[i]) / n * 100;
+
+        // 输出百分比，设置输出格式为固定小数点后两位
+        cout << fixed << setprecision(2) << percentage << "%" << endl;
+    }
+
+    // 返回0，表示程序正常结束
+    return 0;
+}

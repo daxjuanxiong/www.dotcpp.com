@@ -1,0 +1,16 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+    // 输入复合年利率R、总值M和投资年限Y
+    int R, M, Y;
+    std::cin >> R >> M >> Y;
+
+    // 计算最终金额
+    double finalAmount = M * pow(1.0 + R / 100.0, Y);
+
+    // 输出整数部分
+    std::cout << static_cast<int>(finalAmount) << std::endl;
+
+    return 0;
+}

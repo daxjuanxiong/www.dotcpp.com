@@ -1,0 +1,16 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+    // 读取输入
+    int n;
+    std::cin >> n;
+
+    // 计算2的n次方
+    int result = pow(2, n);
+
+    // 输出结果
+    std::cout << result << std::endl;
+
+    return 0;
+}

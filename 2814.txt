@@ -1,0 +1,31 @@
+#include <iostream>
+
+int main() {
+    // 输入测量次数n
+    int n;
+    std::cin >> n;
+
+    int maxNormalHours = 0;  // 最长正常血压小时数
+    int currentNormalHours = 0;  // 当前连续正常血压小时数
+
+    for (int i = 0; i < n; ++i) {
+        int systolic, diastolic;
+        std::cin >> systolic >> diastolic;
+
+        // 检查是否正常血压
+        if (systolic >= 90 && systolic <= 140 && diastolic >= 60 && diastolic <= 90) {
+            // 是正常血压，增加当前连续正常小时数
+            currentNormalHours++;
+            // 更新最长正常血压小时数
+            maxNormalHours = std::max(maxNormalHours, currentNormalHours);
+        } else {
+            // 不是正常血压，重置当前连续正常小时数
+            currentNormalHours = 0;
+        }
+    }
+
+    // 输出最长正常血压小时数
+    std::cout << maxNormalHours << std::endl;
+
+    return 0;
+}

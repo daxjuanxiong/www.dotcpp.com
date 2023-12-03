@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // 读取一行字符串
+    string input;
+    getline(cin, input);
+
+    // 统计数字字符的个数
+    int digitCount = 0;
+    for (char ch : input) {
+        if (isdigit(ch)) {
+            digitCount++;
+        }
+    }
+
+    // 输出结果
+    cout << digitCount << endl;
+
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+
+int fibonacci(int k) {
+    if (k <= 2) {
+        return 1;
+    }
+
+    int a = 1, b = 1, c;
+    for (int i = 3; i <= k; ++i) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+
+    return b;
+}
+
+int main() {
+    // 输入正整数k
+    int k;
+    std::cin >> k;
+
+    // 调用函数计算菲波那契数列中第k个数并输出结果
+    int result = fibonacci(k);
+    std::cout << result << std::endl;
+
+    return 0;
+}

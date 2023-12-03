@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+
+// 判断一个数是否为质数
+bool isPrime(int num) {
+    if (num < 2) {
+        return false;
+    }
+    for (int i = 2; i * i <= num; ++i) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    // 输入正整数 n
+    int n;
+    std::cin >> n;
+
+    // 寻找较大的质数
+    for (int i = 2; i <=n-1; i++) {
+        if (n % i == 0 && isPrime(i)) {
+            // 输出较大的质数
+            std::cout << n/i << std::endl;
+            break;
+        }
+    }
+
+    return 0;
+}

@@ -1,0 +1,35 @@
+#include <iostream>
+
+// 统计数字2的出现次数的函数
+int countDigitTwo(int L, int R) {
+    int count = 0;
+
+    // 遍历范围[L, R]内的每个整数
+    for (int i = L; i <= R; ++i) {
+        int num = i;
+
+        // 遍历当前整数的每一位
+        while (num > 0) {
+            // 判断当前位是否为2
+            if (num % 10 == 2) {
+                count++;
+            }
+            // 去掉当前位，继续判断下一位
+            num /= 10;
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    // 输入范围[L, R]
+    int L, R;
+    std::cin >> L >> R;
+
+    // 调用函数统计数字2的出现次数并输出结果
+    int result = countDigitTwo(L, R);
+    std::cout << result << std::endl;
+
+    return 0;
+}

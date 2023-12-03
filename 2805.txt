@@ -1,0 +1,28 @@
+#include <iostream>
+
+int power(int a, int n) {
+    // 处理特殊情况，任何数的0次方都是1
+    if (n == 0) {
+        return 1;
+    }
+
+    // 使用循环计算乘方结果
+    int result = 1;
+    for (int i = 0; i < n; ++i) {
+        result *= a;
+    }
+
+    return result;
+}
+
+int main() {
+    // 输入整数a和n
+    int a, n;
+    std::cin >> a >> n;
+
+    // 调用函数计算乘方结果并输出
+    int result = power(a, n);
+    std::cout << result << std::endl;
+
+    return 0;
+}

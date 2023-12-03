@@ -1,0 +1,20 @@
+#include <iostream>
+ 
+int main() {
+    int n;
+ 
+    while (std::cin >> n) {
+        // 提取百位、十位和个位数字
+        int hundreds = n / 100;
+        int tens = (n % 100) / 10;
+        int units = n % 10;
+ 
+        // 反转数字
+        int reversed = units * 100 + tens * 10 + hundreds;
+ 
+        // 输出结果
+        std::cout << units<< tens << hundreds << std::endl;
+    }
+ 
+    return 0;
+}
