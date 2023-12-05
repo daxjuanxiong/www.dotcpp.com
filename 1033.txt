@@ -1,0 +1,86 @@
+//方法1
+#include <iostream>
+
+// 判断字符是否为元音字母
+bool isVowel(char ch) {
+    return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+           ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U';
+}
+
+// 复制元音字母到新字符串并输出
+void copyAndPrintVowels(const char* input) {
+    // 初始化计数器
+    int count = 0;
+
+    // 遍历输入字符串，统计元音字母数量
+    for (int i = 0; input[i] != '\0'; ++i) {
+        if (isVowel(input[i])) {
+            count++;
+        }
+    }
+
+    // 创建一个新的字符数组来存储元音字母
+    char vowels[count + 1];  // +1 用于存储字符串结束符 '\0'
+    int index = 0;
+
+    // 复制元音字母到新的字符数组中
+    for (int i = 0; input[i] != '\0'; ++i) {
+        if (isVowel(input[i])) {
+            vowels[index++] = input[i];
+        }
+    }
+
+    // 在新字符数组的末尾添加字符串结束符
+    vowels[index] = '\0';
+
+    // 输出新的字符数组，即元音字母序列
+    std::cout << vowels << std::endl;
+}
+
+int main() {
+    // 从标准输入读取字符串
+    char input[100];
+    std::cin >> input;
+
+    // 调用函数，复制并输出元音字母
+    copyAndPrintVowels(input);
+
+    return 0;
+}
+//方法2：使用 string 类
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// 函数定义：复制元音字母
+string copyVowels(const string& input) {
+    string vowels;
+
+    // 使用传统的for循环，不使用范围-based for循环
+    for (int i = 0; i < input.length(); ++i) {
+        char ch = input[i];
+        
+        // 判断当前字符是否为元音字母
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+            ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+            vowels += ch;
+        }
+    }
+
+    return vowels;
+}
+
+int main() {
+    // 读取输入字符串
+    string input;
+    cin >> input;
+
+    // 调用函数复制元音字母
+    string result = copyVowels(input);
+
+    // 输出结果
+    cout << result << endl;
+
+    return 0;
+}

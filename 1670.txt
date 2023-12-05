@@ -1,0 +1,16 @@
+#include <iostream>
+
+int main() {
+    int number;
+    std::cin >> number;
+
+    // 分别计算百位、十位和个位
+    int hundred = number / 100;
+    int ten = (number / 10) % 10;
+    int unit = number % 10;
+
+    // 输出逆序结果
+    std::cout << unit << " " << ten << " " << hundred << std::endl;
+
+    return 0;
+}

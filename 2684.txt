@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+// 定义一个函数，计算一个数字的数位之和
+int digitSum(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
+// 定义一个比较函数，用于排序
+bool compareNumbers(int a, int b) {
+    int sumA = digitSum(a);
+    int sumB = digitSum(b);
+    return (sumA == sumB) ? (a < b) : (sumA < sumB);
+}
+
+int main() {
+    // 输入 n 和 m
+    int n, m;
+    std::cin >> n >> m;
+
+    // 生成 1 到 n 的数组，并按照题目规定的排序方式进行排序
+    std::vector<int> numbers;
+    for (int i = 1; i <= n; ++i) {
+        numbers.push_back(i);
+    }
+
+    // 使用函数指针进行排序
+    std::sort(numbers.begin(), numbers.end(), compareNumbers);
+
+    // 输出排序后的第 m 个元素
+    std::cout << numbers[m-1] << std::endl;
+
+    return 0;
+}

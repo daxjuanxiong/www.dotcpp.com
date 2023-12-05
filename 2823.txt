@@ -1,0 +1,21 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    double result = 0.0;
+
+    for (int i = 1; i <= n; ++i) {
+        // 判断奇偶性，使用(-1)^(i-1)来交替加减
+        result += ((i % 2 == 1) ? 1.0 : -1.0) / i;
+    }
+
+    // 输出结果，保留小数点后四位
+    cout << fixed << setprecision(4) << result << endl;
+
+    return 0;
+}

@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main() {
+    // 读取输入
+    int n;
+    std::cin >> n;
+
+    // 读取(n-1)个已知内角的度数
+    int knownAnglesSum = 0;
+    for (int i = 0; i < n - 1; ++i) {
+        int angle;
+        std::cin >> angle;
+        knownAnglesSum += angle;
+    }
+
+    // 计算未知内角的度数
+    int unknownAngle = (n - 2) * 180 - knownAnglesSum;
+
+    // 输出结果
+    std::cout << unknownAngle << std::endl;
+
+    return 0;
+}

@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// 函数用于判断胜者
+string getWinner(string player1, string player2) {
+    // 判断玩家1获胜的条件
+    if ((player1 == "Rock" && player2 == "Scissors") ||
+        (player1 == "Scissors" && player2 == "Paper") ||
+        (player1 == "Paper" && player2 == "Rock")) {
+        return "Player1";
+    } 
+    // 判断玩家2获胜的条件
+    else if ((player2 == "Rock" && player1 == "Scissors") ||
+               (player2 == "Scissors" && player1 == "Paper") ||
+               (player2 == "Paper" && player1 == "Rock")) {
+        return "Player2";
+    } 
+    // 如果上述条件都不满足，则为平局
+    else {
+        return "Tie";
+    }
+}
+
+int main() {
+    int N;
+    // 输入游戏次数
+    cin >> N;
+
+    // 循环处理每一次游戏
+    for (int i = 0; i < N; ++i) {
+        string player1, player2;
+        // 输入每个玩家的选择
+        cin >> player1 >> player2;
+
+        // 调用函数判断并输出胜者或平局
+        string winner = getWinner(player1, player2);
+        cout << winner << endl;
+    }
+
+    return 0;
+}

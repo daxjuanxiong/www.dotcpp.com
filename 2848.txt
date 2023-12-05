@@ -1,0 +1,36 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // 2848: 基因相关性
+
+    // 读取输入
+    double threshold;
+    cin >> threshold;
+    
+    string sequence1, sequence2;
+    cin >> sequence1 >> sequence2;
+
+    // 计算相同碱基对的数量
+    int matching_pairs = 0;
+    for (size_t i = 0; i < sequence1.length(); ++i) {
+        if (sequence1[i] == sequence2[i]) {
+            matching_pairs++;
+        }
+    }
+
+    // 计算相同碱基对占总碱基对数量的比例
+    double similarity_ratio = static_cast<double>(matching_pairs) / sequence1.length();
+
+    // 判断是否相关并输出结果
+    if (similarity_ratio >= threshold) {
+        cout << "yes" << endl;
+    } else {
+        cout << "no" << endl;
+    }
+
+    return 0;
+}

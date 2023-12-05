@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    // 定义变量 L 和 M，分别表示马路的长度和区域的数目
+    int L, M;
+    // 从标准输入读取 L 和 M 的值
+    cin >> L >> M;
+
+    // 使用 vector 存储每个区域的起始点和终止点
+    vector<int> start(M);
+    vector<int> end(M);
+
+    // 读取每个区域的起始点和终止点
+    for (int i = 0; i < M; ++i) {
+        cin >> start[i] >> end[i];
+    }
+
+    // 创建一个长度为 L+1 的 vector，初始值为 1，表示马路上的树都存在
+    vector<int> trees(L + 1, 1);
+
+    // 初始化剩余树的数量为马路长度加 1，因为马路上的树从 0 到 L 共有 L+1 棵
+    int remaining_trees = L + 1;
+
+    // 遍历每个区域
+    for (int j = 0; j < M; j++) {
+        // 遍历当前区域内的每个位置
+        for (int k = start[j]; k <= end[j]; k++) {
+            // 如果当前位置有树，则将其移走并更新剩余树的数量
+            if (trees[k] == 1) {
+                trees[k] = 0;
+                remaining_trees--;
+            }
+        }
+    }
+
+    // 输出结果，即剩余的树的数量
+    cout << remaining_trees << endl;
+
+    return 0;
+}

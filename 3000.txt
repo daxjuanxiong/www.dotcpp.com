@@ -1,0 +1,18 @@
+#include <iostream>
+
+int main() {
+    int a, b;
+
+    // 输入两个正整数a和b
+    std::cin >> a >> b;
+
+    // 交换a和b的值
+    int temp = a;
+    a = b;
+    b = temp;
+
+    // 输出交换后的结果
+    std::cout << a << " " << b << std::endl;
+
+    return 0;
+}

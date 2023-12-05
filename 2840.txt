@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // 读取输入
+    int n;
+    cin >> n;
+
+    int a[n], b[n];
+
+    // 输入向量a
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+
+    // 输入向量b
+    for (int i = 0; i < n; ++i) {
+        cin >> b[i];
+    }
+
+    // 计算向量点积
+    int dotProduct = 0;
+    for (int i = 0; i < n; ++i) {
+        dotProduct += a[i] * b[i];
+    }
+
+    // 输出结果
+    cout << dotProduct << endl;
+
+    return 0;
+}

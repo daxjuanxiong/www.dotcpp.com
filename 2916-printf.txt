@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iomanip>
+
+struct Student {
+    int id;
+    double score;
+};
+
+bool compareStudents(const Student& s1, const Student& s2) {
+    return s1.score > s2.score; // 降序排列
+}
+
+int main() {
+    int n, k;
+    std::cin >> n >> k;
+
+    std::vector<Student> students;
+
+    for (int i = 0; i < n; ++i) {
+        Student student;
+        std::cin >> student.id >> student.score;
+        students.push_back(student);
+    }
+
+    // 按成绩降序排序学生列表
+    std::sort(students.begin(), students.end(), compareStudents);
+
+    // 获取第k名学生的学号和成绩
+    Student kthStudent = students[k - 1];
+
+    // 输出结果
+    printf("%d %g\n", kthStudent.id, kthStudent.score);
+ 
+    return 0;
+}

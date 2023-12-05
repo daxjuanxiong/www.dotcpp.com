@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+    int t;
+
+    // 输入温度t的值
+    std::cin >> t;
+
+    // 判断是否适合晨练
+    if (t >= 25 && t <= 30) {
+        std::cout << "ok!" << std::endl;
+    } else {
+        std::cout << "no!" << std::endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,25 @@
+#include <iostream>
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    int oddSum = 0;  // 用于存储奇数之和
+    int evenSum = 0; // 用于存储偶数之和
+
+    // 循环遍历1到n的所有数字
+    for (int i = 1; i <= n; ++i) {
+        if (i % 2 == 0) {
+            // 如果是偶数，加到偶数之和
+            evenSum += i;
+        } else {
+            // 如果是奇数，加到奇数之和
+            oddSum += i;
+        }
+    }
+
+    // 输出结果
+    std::cout << evenSum << " " << oddSum << std::endl;
+
+    return 0;
+}

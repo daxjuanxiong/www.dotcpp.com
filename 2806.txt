@@ -1,0 +1,19 @@
+#include <iostream>
+#include <iomanip> // 用于设置输出精度
+
+int main() {
+    // 读取输入
+    double x; // 使用double类型处理可能有小数的人口基数
+    int n;
+    std::cin >> x >> n;
+
+    // 计算人口增长后的结果
+    for (int i = 0; i < n; ++i) {
+        x *= 1.001; // 每年增长0.1%
+    }
+
+    // 设置输出精度，并输出结果
+    std::cout << std::fixed << std::setprecision(4) << x << std::endl;
+
+    return 0;
+}

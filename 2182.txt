@@ -1,0 +1,10 @@
+#include <iostream>
+
+int main() {
+    // 打印一个由*组成的三角形图案
+    printf("  *\n");
+    printf(" * *\n");
+    printf("*****\n");
+
+    return 0;
+}

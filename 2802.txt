@@ -1,0 +1,20 @@
+#include <iostream>
+
+int main() {
+    // 读取输入
+    int m, n;
+    std::cin >> m >> n;
+
+    // 累加能被17整除的数
+    int sum = 0;
+    for (int i = m; i <= n; ++i) {
+        if (i % 17 == 0) {
+            sum += i;
+        }
+    }
+
+    // 输出结果
+    std::cout << sum << std::endl;
+
+    return 0;
+}
