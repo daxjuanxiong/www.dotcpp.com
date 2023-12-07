@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    // 读取输入的正整数N
+    int N;
+    scanf("%d", &N);
+
+    // 输出小于N的正偶数
+    for (int i = 2; i < N; i += 2) {
+        printf("%d\n", i);
+    }
+
+    return 0;
+}

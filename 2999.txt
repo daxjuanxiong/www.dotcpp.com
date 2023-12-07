@@ -1,0 +1,20 @@
+// 与2181题类型一样
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    // 读取输入数据
+    int x, a, y, b;
+    x = 15;
+    a = 20;
+    y = 20;
+    b = 10;
+
+    // 计算最多养活的人数
+    double z = static_cast<double>(y * b - x * a ) / (b - a);
+
+    
+    std::cout  << z << std::endl;
+
+    return 0;
+}

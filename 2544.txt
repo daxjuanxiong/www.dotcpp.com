@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    // 读取输入的数字N
+    int N;
+    scanf("%d", &N);
+
+    // 计算N以内的数字之和
+    int sum = 0;
+    for (int i = 1; i <= N; ++i) {
+        sum += i;
+    }
+
+    // 输出结果
+    printf("%d\n", sum);
+
+    return 0;
+}

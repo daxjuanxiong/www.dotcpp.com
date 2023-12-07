@@ -1,0 +1,32 @@
+// 与2999题目类型一样
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    // 读取输入数据
+    int x, a, y, b;
+    std::cin >> x >> a >> y >> b;
+
+    // 计算最多养活的人数
+    double z = static_cast<double>(y * b - x * a ) / (b - a);
+
+    // 输出结果，保留两位小数
+    std::cout << std::fixed << std::setprecision(2) << z << std::endl;
+
+    return 0;
+}
+
+/*
+R：地球上现有资源
+r:地球上每年新增的资源
+m：每亿人消耗的资源
+m*x*a = R + a*r -------------------方程1
+m*y*b = R + b*r -------------------方程2
+方程2减去方程1，得到
+m*(y*b - x*a) = (b-a)*r --------------方程3
+
+r = m*(y*b - x*a) /(b-a) ---------------方程4
+z:表示地球最多养活z亿人
+z*m = r-------------------------------方程5
+z = r/m = (y*b - x*a) /(b-a)
+*/

@@ -1,0 +1,33 @@
+#include <iostream>
+
+int main() {
+    // 读取总共有几组临床实验数据
+    int n;
+    std::cin >> n;
+
+    // 读取鸡尾酒疗法的实验数据
+    int cocktailCases, cocktailEffective;
+    std::cin >> cocktailCases >> cocktailEffective;
+
+    // 循环处理各种改进疗法的实验数据
+    for (int i = 1; i < n; ++i) {
+        // 读取当前改进疗法的实验数据
+        int newTreatmentCases, newTreatmentEffective;
+        std::cin >> newTreatmentCases >> newTreatmentEffective;
+
+        // 计算鸡尾酒疗法和当前改进疗法的有效率
+        double cocktailRate = static_cast<double>(cocktailEffective) / cocktailCases;
+        double newTreatmentRate = static_cast<double>(newTreatmentEffective) / newTreatmentCases;
+
+        // 判断效果差异并输出结果
+        if (newTreatmentRate - cocktailRate > 0.05) {
+            std::cout << "better" << std::endl;
+        } else if (cocktailRate - newTreatmentRate > 0.05) {
+            std::cout << "worse" << std::endl;
+        } else {
+            std::cout << "same" << std::endl;
+        }
+    }
+
+    return 0;
+}

@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Student {
+    char name[21];
+    int avgScore;
+    int evalScore;
+    char isCadre;
+    char isWestern;
+    int paperCount;
+    int totalBonus;
+};
+
+// 计算奖学金总数的函数
+void calculateTotalBonus(struct Student *student) {
+    student->totalBonus = 0;
+    if (student->avgScore > 80 && student->paperCount >= 1) {
+        student->totalBonus += 8000;
+    }
+    if (student->avgScore > 85 && student->evalScore > 80) {
+        student->totalBonus += 4000;
+    }
+    if (student->avgScore > 90) {
+        student->totalBonus += 2000;
+    }
+    if (student->avgScore > 85 && student->isWestern == 'Y') {
+        student->totalBonus += 1000;
+    }
+    if (student->evalScore > 80 && student->isCadre == 'Y') {
+        student->totalBonus += 850;
+    }
+}
+
+int main() {
+    // 读取输入
+    int N;
+    scanf("%d", &N);
+
+    struct Student *students = (struct Student *)malloc(N * sizeof(struct Student));
+
+    for (int i = 0; i < N; ++i) {
+        scanf("%s %d %d %c %c %d",
+              students[i].name,
+              &students[i].avgScore,
+              &students[i].evalScore,
+              &students[i].isCadre,
+              &students[i].isWestern,
+              &students[i].paperCount);
+
+        // 计算奖学金总数
+        calculateTotalBonus(&students[i]);
+    }
+
+    // 找到获得最多奖金的学生
+    int maxBonus = 0;
+    char topStudentName[21];
+    int totalBonusSum = 0;
+
+    for (int i = 0; i < N; ++i) {
+        totalBonusSum += students[i].totalBonus;
+
+        if (students[i].totalBonus > maxBonus) {
+            maxBonus = students[i].totalBonus;
+            strcpy(topStudentName, students[i].name);
+        }
+    }
+
+    // 输出结果
+    printf("%s\n", topStudentName);
+    printf("%d\n", maxBonus);
+    printf("%d\n", totalBonusSum);
+
+    free(students);
+
+    return 0;
+}

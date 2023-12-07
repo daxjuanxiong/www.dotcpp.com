@@ -1,0 +1,48 @@
+#include <iostream>
+
+int main() {
+    // 读取输入
+    int num1, num2;
+    char op;
+    std::cin >> num1 >> op >> num2;
+
+    // 执行相应的运算
+    int result;
+    switch (op) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            // 需要注意除数不能为零
+            if (num2 != 0) {
+                result = num1 / num2;
+            } else {
+                std::cerr << "Error: Division by zero." << std::endl;
+                return 1;  // 返回错误代码
+            }
+            break;
+        case '%':
+            // 需要注意除数不能为零
+            if (num2 != 0) {
+                result = num1 % num2;
+            } else {
+                std::cerr << "Error: Modulo by zero." << std::endl;
+                return 1;  // 返回错误代码
+            }
+            break;
+        default:
+            std::cerr << "Error: Invalid operator." << std::endl;
+            return 1;  // 返回错误代码
+    }
+
+    // 输出结果
+    std::cout << result << std::endl;
+
+    return 0;
+}

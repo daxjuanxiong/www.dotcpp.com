@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    // 读取输入
+    int M;
+    std::cin >> M;
+
+    std::vector<int> numbers(M);
+    for (int i = 0; i < M; ++i) {
+        std::cin >> numbers[i];
+    }
+
+    // 计算最大值和最小值的差
+    int max_value = numbers[0];
+    int min_value = numbers[0];
+
+    for (int i = 1; i < M; ++i) {
+        if (numbers[i] > max_value) {
+            max_value = numbers[i];
+        }
+        if (numbers[i] < min_value) {
+            min_value = numbers[i];
+        }
+    }
+
+    int result = max_value - min_value;
+
+    // 输出结果
+    std::cout << result << std::endl;
+
+    return 0;
+}

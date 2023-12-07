@@ -1,0 +1,38 @@
+#include <iostream>
+
+int main() {
+    // 读取每天开始时的药品总量m
+    int m;
+    std::cin >> m;
+
+    // 读取这一天取药的人数n
+    int n;
+    std::cin >> n;
+
+    // 记录每个病人希望取走的药品数量
+    int requestedQuantities[100];
+
+    // 读取每个病人希望取走的药品数量
+    for (int i = 0; i < n; ++i) {
+        std::cin >> requestedQuantities[i];
+    }
+
+    // 计算每天没有取上药品的人数
+    int notReceivedCount = 0;
+
+    // 处理每个病人的请求
+    for (int i = 0; i < n; ++i) {
+        // 如果药品库存不足，该病人没有取上药品
+        if (requestedQuantities[i] > m) {
+            notReceivedCount++;
+        } else {
+            // 更新库存量
+            m -= requestedQuantities[i];
+        }
+    }
+
+    // 输出结果
+    std::cout << notReceivedCount << std::endl;
+
+    return 0;
+}

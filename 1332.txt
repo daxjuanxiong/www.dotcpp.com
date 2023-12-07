@@ -1,0 +1,45 @@
+#include <iostream>
+
+int main() {
+    int budget[12];  // 存储每月的预算
+    int savings = 0;  // 津津的储蓄
+    int deficitMonth = 0;  // 记录出现预算不足的月份
+    int finalSavings = 0;
+    // 读取每月的预算
+    for (int i = 0; i < 12; ++i) {
+        std::cin >> budget[i];
+    }
+    bool flag = 1;
+    // 遍历每个月的预算情况
+    for (int i = 0; i < 12; ++i) {
+        // 判断是否需要存钱到妈妈那里
+        if (savings + 300 < budget[i]) {
+            if(flag)
+            {
+                flag = 0;
+                deficitMonth = -(i+1);
+            }
+        }
+        else
+        // 计算剩余的钱
+        {
+          savings = savings + 300 - budget[i];
+        }
+        
+        // 如果剩余的钱超过或等于100元，存整百到妈妈那里
+        while (savings >= 100) {
+            savings -= 100;
+            finalSavings +=100;
+        }
+    }
+
+    if (deficitMonth == 0) {
+        float t = finalSavings*1.2+savings;
+        printf("%0.f\n",t);%小数点后0位
+    } else {
+        // 如果出现预算不足的情况，输出出现问题的月份
+        std::cout << deficitMonth << std::endl;
+    }
+
+    return 0;
+}

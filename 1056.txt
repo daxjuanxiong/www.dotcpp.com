@@ -1,0 +1,15 @@
+#include <stdio.h>
+ 
+int main() {
+    // 读取输入的华氏温度
+    float fahrenheit;
+    scanf("%f", &fahrenheit);
+ 
+    // 使用温度转换公式将华氏温度转换为摄氏温度
+    float celsius = 5.0/9*(fahrenheit - 32);
+ 
+    // 输出摄氏温度，保留两位小数
+    printf("%.2f\n", celsius);
+ 
+    return 0;
+}
