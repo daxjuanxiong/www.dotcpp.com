@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+
+bool isPrime(int num) {
+    // 如果num小于2，它不是素数
+    if (num < 2) {
+        return false;
+    }
+
+    // 使用sqrt函数来减少循环次数，检查num是否有小于等于sqrt(num)的因子
+    for (int i = 2; i <= sqrt(num); ++i) {
+        if (num % i == 0) {
+            return false;  // num有一个因子，不是素数
+        }
+    }
+
+    return true;  // 没有小于等于sqrt(num)的因子，是素数
+}
+
+int main() {
+    int num;
+    std::cin >> num;
+    int i=0;
+    for (;i<=num;i++)
+   {
+    if (isPrime(i)) 
+        std::cout << i << std::endl;
+   }
+    return 0;
+}

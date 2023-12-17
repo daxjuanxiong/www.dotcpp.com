@@ -1,0 +1,13 @@
+#include <iostream>
+
+int main() {
+    int a, b;
+
+    // 循环读取每一行的输入，直到文件结束或手动终止输入
+    while (std::cin >> a >> b) {
+        // 输出每一行输入的和
+        std::cout << a + b << std::endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    // 声明整数变量n，表示挂号就诊的病人数
+    int n;
+    // 从标准输入流(cin)读取病人数
+    std::cin >> n;
+
+    // 定义一个存储病人信息的结构体
+    struct Patient {
+        std::string name;  // 姓名
+        float temperature; // 体温
+        int cough;         // 是否咳嗽，1表示咳嗽，0表示不咳嗽
+    };
+
+    // 声明一个病人信息的vector
+    std::vector<Patient> patients;
+
+    // 循环读取每个病人的信息
+    for (int i = 0; i < n; ++i) {
+        // 创建一个病人对象
+        Patient patient;
+        // 从标准输入流(cin)读取病人的姓名、体温和咳嗽情况
+        std::cin >> patient.name >> patient.temperature >> patient.cough;
+        // 将病人对象添加到vector中
+        patients.push_back(patient);
+    }
+
+    // 输出被筛选为甲流的病人的姓名
+    // 统计被筛选为甲流的病人数量
+    int count = 0;
+    for (int i = 0; i < n; ++i) {
+        // 判断体温是否超过37.5度并且咳嗽，是则输出姓名
+        if (patients[i].temperature >= 37.5 && patients[i].cough == 1) {
+            std::cout << patients[i].name << std::endl;
+	    count++;
+        }
+    }
+
+
+
+    // 输出被筛选为甲流的病人数量
+    std::cout << count << std::endl;
+
+    // 返回主函数执行结束的标志
+    return 0;
+}

@@ -1,0 +1,40 @@
+#include <iostream>
+
+int main() {
+    // 声明整数变量m和n，表示矩阵的行数和列数
+    int m, n;
+    // 从标准输入流(cin)读取矩阵的行数和列数
+    std::cin >> m >> n;
+
+    // 声明二维数组matrix表示矩阵
+    int matrix[100][100];
+
+    // 循环读取矩阵中的元素
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            // 从标准输入流(cin)读取矩阵中的元素
+            std::cin >> matrix[i][j];
+        }
+    }
+
+    // 计算矩阵边缘元素之和
+    int sum = 0;
+
+    // 计算第一行和最后一行的元素之和
+    for (int j = 0; j < n; ++j) {
+        sum += matrix[0][j];         // 第一行
+        sum += matrix[m - 1][j];     // 最后一行
+    }
+
+    // 计算第一列和最后一列的元素之和
+    for (int i = 1; i < m - 1; ++i) {
+        sum += matrix[i][0];         // 第一列
+        sum += matrix[i][n - 1];     // 最后一列
+    }
+
+    // 输出矩阵边缘元素之和
+    std::cout << sum << std::endl;
+
+    // 返回主函数执行结束的标志
+    return 0;
+}

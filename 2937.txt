@@ -1,0 +1,37 @@
+// 包含输入输出流的头文件
+#include <iostream>
+// 包含数学函数的头文件
+#include <cmath>
+// 包含设置输出格式的头文件
+#include <iomanip>
+
+// 主函数
+int main() {
+    // 声明整数变量n，表示当月发送短信的总次数
+    int n;
+    // 从标准输入流(cin)读取当月发送短信的总次数
+    std::cin >> n;
+
+    // 声明双精度浮点变量totalCost，表示当月短信的总资费
+    double totalCost = 0.0;
+
+    // 循环处理每一次发送的短信
+    for (int i = 0; i < n; ++i) {
+        // 声明整数变量words，表示每次短信的字数
+        int words;
+        // 从标准输入流(cin)读取每次短信的字数
+        std::cin >> words;
+
+        // 计算当前短信的资费，使用ceil函数将字数除以70后向上取整，再乘以0.1得到资费
+        double cost = ceil(static_cast<double>(words) / 70) * 0.1;
+
+        // 将当前短信的资费累加到总资费中
+        totalCost += cost;
+    }
+
+    // 输出总资费，设置输出格式为固定小数点表示法，保留一位小数，并换行
+    std::cout << std::fixed << std::setprecision(1) << totalCost << std::endl;
+
+    // 返回主函数执行结束的标志
+    return 0;
+}

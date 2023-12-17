@@ -1,0 +1,78 @@
+﻿#include <iostream>
+
+int main() {
+	// 声明三个自然数N，y0，x0
+	int N, y0, x0;
+	// 从标准输入流(cin)读取N，y0，x0
+	std::cin >> N >> y0 >> x0;
+
+	// 输出同一行格子位置
+	for (int x = 1; x <= N; ++x) {
+		std::cout << "(" << y0 << "," << x << ")";
+		if (x != N)
+			std::cout << " ";
+	}
+	std::cout << std::endl;
+
+	// 输出同一列格子位置
+	for (int y = 1; y <= N; ++y) {
+		std::cout << "(" << y << "," << x0 << ")";
+		if (y != N)
+			std::cout << " ";
+	}
+	std::cout << std::endl;
+
+	int y1 = 0;
+	int y2 = 0;
+	int x1 = 0;
+	int x2 = 0;
+	// 左上到右下对角线上的格子的位置
+	if (y0 - 1 < x0 - 1) {
+		y1 = y0 - (y0 - 1); //左上角y坐标起始点
+		x1 = x0 - (y0 - 1);//左上角x坐标起始点
+	}
+	else {
+		y1 = y0 - (x0 - 1);//左上角y坐标起始点
+		x1 = x0 - (x0 - 1);//左上角x坐标起始点
+	}
+	if (N - y0 < N - x0) {
+		y2 = y0 + (N - y0);//右下角y坐标终点
+		x2 = x0 + (N - y0);//右下角x坐标重点
+	}
+	else {
+		y2 = y0 + (N - x0);//右下角y坐标终点
+		x2 = x0 + (N - x0);//右下角x坐标终点
+	}
+	for (int y = y1, x = x1; y <= y2 && x <= x2; y++, x++) {
+		std::cout << "(" << y << "," << x << ")";
+		if (y != y2)
+			std::cout << " ";
+	}
+	std::cout << std::endl;
+	// 左下到右上对角线上的格子的位置
+	if (N - y0 < x0 - 1) {
+		y1 = y0 + (N - y0);//左下角y坐标起始点
+		x1 = x0 - (N - y0);//左下角x坐标起始点
+	}
+	else {
+		y1 = y0 + (x0 - 1);//左下角y坐标起始点
+		x1 = x0 - (x0 - 1);//左下角x坐标起始点
+	}
+	if (y0 - 1 < N - x0) {
+		y2 = y0 - (y0 - 1);//右上角y坐标终点
+		x2 = x0 + (y0 - 1);//右上角x坐标终点
+	}
+	else {
+		y2 = y0 - (N - x0);//右上角y坐标终点
+		x2 = x0 + (N - x0);//右上角x坐标终点
+	}
+
+	for (int y = y1, x = x1; y >= y2 && x <= x2; y--, x++) {
+		std::cout << "(" << y << "," << x << ")";
+		if (y != y2)
+			std::cout << " ";
+	}
+	std::cout << std::endl;
+	// 返回主函数执行结束的标志
+	return 0;
+}
